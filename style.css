@@ -1,0 +1,26 @@
+h1 {
+    text-align: center;
+}
+
+.grid-container {
+    border: 1px solid grey;
+    padding: 0;
+    max-width: 432px;
+    margin: auto;
+}
+
+.grid-square {
+    border: 1px solid grey;
+    flex-basis: 25px;
+    height: 25px;
+    flex-shrink: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.grid-row {
+    display: flex;
+    align-items: flex-end;
+    margin: 0;
+    padding: 0;
+}
