@@ -8,13 +8,19 @@ h1 {
 
 .button-container {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    margin-bottom: 21px;
+    margin: auto auto 21px auto;
+    width: 502px;
+}
+
+.active {
+    background-color: white;
 }
 
 button {
-    padding: 8px 10px;
+    width: 120px;
+    height: 35px;
 }
 
 .grid-container {
@@ -39,8 +45,4 @@ button {
     align-items: flex-end;
     margin: 0;
     padding: 0;
-}
-
-.colored {
-    background-color: black;
 }

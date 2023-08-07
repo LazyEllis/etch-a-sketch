@@ -3,6 +3,9 @@ const gridRow = document.createElement("div");
 const gridSquare = document.createElement("div");
 const page = document.querySelector("body");
 const newGridButton = document.querySelector("#new-grid-button");
+const colorButton = document.querySelector("#color");
+const rainbowButton = document.querySelector("#rainbow");
+const greyscaleButton = document.querySelector("#greyScale");
 
 gridSquare.classList = "grid-square";
 gridRow.classList = "grid-row";
@@ -17,18 +20,76 @@ const createGrid = (gridDimension) => {
     }
 };
 
-const addColorEffect = () => {
+const addSingleColorEffect = () => {
     const gridSquares = document.querySelectorAll(".grid-square");
 
+    addcolorEffect = (e) => {
+        e.target.style.backgroundColor = "black";
+    };
+
     gridSquares.forEach((square) => {
-        square.addEventListener("mouseover", () => {
-            square.classList.add("colored");
-        });
+        square.addEventListener("mouseover", addcolorEffect);
     });
 };
 
-createGrid(16);
-addColorEffect();
+const addRainbowColorEffect = () => {
+    const gridSquares = document.querySelectorAll(".grid-square");
+
+    addcolorEffect = (e) => {
+        redValue = Math.floor(Math.random() * 255) + 1;
+        greenValue = Math.floor(Math.random() * 255) + 1;
+        blueValue = Math.floor(Math.random() * 255) + 1;
+        e.target.style.backgroundColor = `rgb(${redValue}, ${greenValue}, ${blueValue})`;
+    };
+
+    gridSquares.forEach((square) => {
+        square.addEventListener("mouseover", addcolorEffect);
+    });
+};
+
+const chooseColorEffect = () => {
+    if (colorButton.className === "active") {
+        addSingleColorEffect();
+    } else if (rainbowButton.className === "active") {
+        addRainbowColorEffect();
+    }
+};
+
+const removeColorEffect = () => {
+    const gridSquares = document.querySelectorAll(".grid-square");
+
+    gridSquares.forEach((square) => {
+        square.removeEventListener("mouseover", addcolorEffect);
+    });
+};
+
+const activateColorButton = () => {
+    if (rainbowButton.className === "active") {
+        rainbowButton.classList.remove("active");
+        removeColorEffect();
+    } else if (greyscaleButton.className === "active") {
+        greyscaleButton.classList.remove("active");
+    } else {
+        return;
+    }
+
+    colorButton.classList.add("active");
+    addSingleColorEffect();
+};
+
+const activateRainbowButton = () => {
+    if (colorButton.className === "active") {
+        colorButton.classList.remove("active");
+        removeColorEffect();
+    } else if (greyscaleButton.className === "active") {
+        greyscaleButton.classList.remove("active");
+    } else {
+        return;
+    }
+
+    rainbowButton.classList.add("active");
+    addRainbowColorEffect();
+};
 
 const createNewGrid = () => {
     let gridDimension = prompt(
@@ -53,7 +114,12 @@ const createNewGrid = () => {
     gridSquare.style.height = `${newSquareDimension}px`;
 
     createGrid(gridDimension);
-    addColorEffect();
+    chooseColorEffect();
 };
 
+createGrid(16);
+chooseColorEffect();
+
 newGridButton.addEventListener("click", createNewGrid);
+colorButton.addEventListener("click", activateColorButton);
+rainbowButton.addEventListener("click", activateRainbowButton);
