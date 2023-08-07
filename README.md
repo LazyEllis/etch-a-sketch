@@ -12,4 +12,4 @@ The game has three modes, you can use to color your pixel grid:
 
 ## Live Demo
 
-[Live Demo](lazyellis.github.io/etch-a-sketch) :point_left:
+[Live Demo](https://lazyellis.github.io/etch-a-sketch/) :point_left:
