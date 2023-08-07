@@ -5,7 +5,7 @@ const page = document.querySelector("body");
 const newGridButton = document.querySelector("#new-grid-button");
 const colorButton = document.querySelector("#color");
 const rainbowButton = document.querySelector("#rainbow");
-const greyscaleButton = document.querySelector("#greyScale");
+const greyscaleButton = document.querySelector("#greyscale");
 
 gridSquare.classList = "grid-square";
 gridRow.classList = "grid-row";
@@ -47,11 +47,129 @@ const addRainbowColorEffect = () => {
     });
 };
 
+const addGreyscaleColorEffect = () => {
+    const gridSquares = document.querySelectorAll(".grid-square");
+
+    addcolorEffect = (e) => {
+        blackRgbValue = 255;
+
+        if (
+            e.target.style.backgroundColor === `rgb(0, 0, 0)` ||
+            e.target.style.backgroundColor ===
+                `rgb(${Math.floor(0.1 * blackRgbValue) + 1}, ${
+                    Math.floor(0.1 * blackRgbValue) + 1
+                }, ${Math.floor(0.1 * blackRgbValue) + 1})`
+        ) {
+            e.target.style.backgroundColor = `rgb(0, 0, 0)`;
+        } else if (
+            e.target.style.backgroundColor ===
+            `rgb(${Math.floor(0.2 * blackRgbValue) + 1}, ${
+                Math.floor(0.2 * blackRgbValue) + 1
+            }, ${Math.floor(0.2 * blackRgbValue) + 1})`
+        ) {
+            e.target.style.backgroundColor = `rgb(${
+                Math.floor(0.1 * blackRgbValue) + 1
+            }, ${Math.floor(0.1 * blackRgbValue) + 1}, ${
+                Math.floor(0.1 * blackRgbValue) + 1
+            })`;
+        } else if (
+            e.target.style.backgroundColor ===
+            `rgb(${Math.floor(0.3 * blackRgbValue) + 1}, ${
+                Math.floor(0.3 * blackRgbValue) + 1
+            }, ${Math.floor(0.3 * blackRgbValue) + 1})`
+        ) {
+            e.target.style.backgroundColor = `rgb(${
+                Math.floor(0.2 * blackRgbValue) + 1
+            }, ${Math.floor(0.2 * blackRgbValue) + 1}, ${
+                Math.floor(0.2 * blackRgbValue) + 1
+            })`;
+        } else if (
+            e.target.style.backgroundColor ===
+            `rgb(${Math.floor(0.4 * blackRgbValue) + 1}, ${
+                Math.floor(0.4 * blackRgbValue) + 1
+            }, ${Math.floor(0.4 * blackRgbValue) + 1})`
+        ) {
+            e.target.style.backgroundColor = `rgb(${
+                Math.floor(0.3 * blackRgbValue) + 1
+            }, ${Math.floor(0.3 * blackRgbValue) + 1}, ${
+                Math.floor(0.3 * blackRgbValue) + 1
+            })`;
+        } else if (
+            e.target.style.backgroundColor ===
+            `rgb(${Math.floor(0.5 * blackRgbValue) + 1}, ${
+                Math.floor(0.5 * blackRgbValue) + 1
+            }, ${Math.floor(0.5 * blackRgbValue) + 1})`
+        ) {
+            e.target.style.backgroundColor = `rgb(${
+                Math.floor(0.4 * blackRgbValue) + 1
+            }, ${Math.floor(0.4 * blackRgbValue) + 1}, ${
+                Math.floor(0.4 * blackRgbValue) + 1
+            })`;
+        } else if (
+            e.target.style.backgroundColor ===
+            `rgb(${Math.floor(0.6 * blackRgbValue) + 1}, ${
+                Math.floor(0.6 * blackRgbValue) + 1
+            }, ${Math.floor(0.6 * blackRgbValue) + 1})`
+        ) {
+            e.target.style.backgroundColor = `rgb(${
+                Math.floor(0.5 * blackRgbValue) + 1
+            }, ${Math.floor(0.5 * blackRgbValue) + 1}, ${
+                Math.floor(0.5 * blackRgbValue) + 1
+            })`;
+        } else if (
+            e.target.style.backgroundColor ===
+            `rgb(${Math.floor(0.7 * blackRgbValue) + 1}, ${
+                Math.floor(0.7 * blackRgbValue) + 1
+            }, ${Math.floor(0.7 * blackRgbValue) + 1})`
+        ) {
+            e.target.style.backgroundColor = `rgb(${
+                Math.floor(0.6 * blackRgbValue) + 1
+            }, ${Math.floor(0.6 * blackRgbValue) + 1}, ${
+                Math.floor(0.6 * blackRgbValue) + 1
+            })`;
+        } else if (
+            e.target.style.backgroundColor ===
+            `rgb(${Math.floor(0.8 * blackRgbValue) + 1}, ${
+                Math.floor(0.8 * blackRgbValue) + 1
+            }, ${Math.floor(0.8 * blackRgbValue) + 1})`
+        ) {
+            e.target.style.backgroundColor = `rgb(${
+                Math.floor(0.7 * blackRgbValue) + 1
+            }, ${Math.floor(0.7 * blackRgbValue) + 1}, ${
+                Math.floor(0.7 * blackRgbValue) + 1
+            })`;
+        } else if (
+            e.target.style.backgroundColor ===
+            `rgb(${Math.floor(0.9 * blackRgbValue) + 1}, ${
+                Math.floor(0.9 * blackRgbValue) + 1
+            }, ${Math.floor(0.9 * blackRgbValue) + 1})`
+        ) {
+            e.target.style.backgroundColor = `rgb(${
+                Math.floor(0.8 * blackRgbValue) + 1
+            }, ${Math.floor(0.8 * blackRgbValue) + 1}, ${
+                Math.floor(0.8 * blackRgbValue) + 1
+            })`;
+        } else {
+            e.target.style.backgroundColor = `rgb(${
+                Math.floor(0.9 * blackRgbValue) + 1
+            }, ${Math.floor(0.9 * blackRgbValue) + 1}, ${
+                Math.floor(0.9 * blackRgbValue) + 1
+            })`;
+        }
+    };
+
+    gridSquares.forEach((square) => {
+        square.addEventListener("mouseover", addcolorEffect);
+    });
+};
+
 const chooseColorEffect = () => {
     if (colorButton.className === "active") {
         addSingleColorEffect();
     } else if (rainbowButton.className === "active") {
         addRainbowColorEffect();
+    } else {
+        addGreyscaleColorEffect();
     }
 };
 
@@ -69,6 +187,7 @@ const activateColorButton = () => {
         removeColorEffect();
     } else if (greyscaleButton.className === "active") {
         greyscaleButton.classList.remove("active");
+        removeColorEffect();
     } else {
         return;
     }
@@ -83,12 +202,28 @@ const activateRainbowButton = () => {
         removeColorEffect();
     } else if (greyscaleButton.className === "active") {
         greyscaleButton.classList.remove("active");
+        removeColorEffect();
     } else {
         return;
     }
 
     rainbowButton.classList.add("active");
     addRainbowColorEffect();
+};
+
+const activateGreyscaleButton = () => {
+    if (colorButton.className === "active") {
+        colorButton.classList.remove("active");
+        removeColorEffect();
+    } else if (rainbowButton.className === "active") {
+        rainbowButton.classList.remove("active");
+        removeColorEffect();
+    } else {
+        return;
+    }
+
+    greyscaleButton.classList.add("active");
+    addGreyscaleColorEffect();
 };
 
 const createNewGrid = () => {
@@ -123,3 +258,4 @@ chooseColorEffect();
 newGridButton.addEventListener("click", createNewGrid);
 colorButton.addEventListener("click", activateColorButton);
 rainbowButton.addEventListener("click", activateRainbowButton);
+greyscaleButton.addEventListener("click", activateGreyscaleButton);
