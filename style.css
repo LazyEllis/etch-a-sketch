@@ -1,48 +1,48 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 h1 {
-    text-align: center;
+  text-align: center;
 }
 
 .button-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: auto auto 21px auto;
-    width: 502px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto auto 21px auto;
+  width: 502px;
 }
 
 .active {
-    background-color: white;
+  background-color: white;
 }
 
 button {
-    width: 120px;
-    height: 35px;
+  width: 120px;
+  height: 35px;
 }
 
 .grid-container {
-    border: 1px solid grey;
-    padding: 0;
-    max-width: 500px;
-    margin: auto;
+  border: 1px solid grey;
+  padding: 0;
+  max-width: 500px;
+  margin: auto;
 }
 
 .grid-square {
-    border: 1px solid grey;
-    flex-basis: 31.25px;
-    height: 31.25px;
-    flex-shrink: 0;
-    margin: 0;
-    padding: 0;
+  border: 1px solid grey;
+  flex-basis: 31.25px;
+  height: 31.25px;
+  flex-shrink: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .grid-row {
-    max-width: 500px;
-    display: flex;
-    align-items: flex-end;
-    margin: 0;
-    padding: 0;
+  max-width: 500px;
+  display: flex;
+  align-items: flex-end;
+  margin: 0;
+  padding: 0;
 }

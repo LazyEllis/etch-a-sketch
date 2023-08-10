@@ -6,9 +6,9 @@ An Etch a sketch game created with HTML, CSS and JS.
 
 The game has three modes, you can use to color your pixel grid:
 
--   Plain Black Mode
--   Rainbow Mode
--   Greyscale Mode
+- Plain Black Mode
+- Rainbow Mode
+- Grayscale Mode
 
 ## Live Demo
 
